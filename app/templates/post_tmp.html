@@ -6,6 +6,10 @@
                 <div>
                     {{ post.author.nickname }} said {{ momentjs(post.timestamp).fromNow() }}:
                     <b><span id="post{{ post.id }}">{{ post.body }}</span></b>
+                    {% if post.author.id == current_user.id %}
+                        <div><a href="{{ url_for('delete', id = post.id) }}">{{ _('Delete') }}</a></div>
+                    {% endif %}
+
                 </div>
                 <div>
                     <span id="translation{{ post.id }}">

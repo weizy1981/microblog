@@ -32,9 +32,6 @@ def get_locale():
 @app.route('/translate', methods = ['POST'])
 @login_required
 def translate_action():
-    text = request.form['text']
-    print(text)
-    print(type(text))
     return jsonify({
         'text': translate(
             request.form['text'],
@@ -265,3 +262,22 @@ def unfollow(username):
         return redirect(url_for('user', username=username))
     flash('You have stopped following ' + username + '.')
     return redirect(url_for('user', username=username))
+
+@app.route('/delete/<int:id>')
+@login_required
+def delete(id):
+    userController = UserController()
+    post = userController.search_post_byId(id=id)
+    if post == None:
+        flash('Post not found.')
+        return redirect(url_for('index'))
+    if post.author.id != current_user.id:
+        flash('You cannot delete this post.')
+        return redirect(url_for('index'))
+
+    # 删除Post
+    userController.delete_post(post)
+    flash('Your post has been deleted.')
+
+    return redirect(url_for('index'))
+

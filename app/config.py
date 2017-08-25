@@ -39,4 +39,7 @@ LANGUAGES = {
     'zh' : '中文'
 }
 
+BAIDU_APP_ID = 'your appid'
+BAIDU_APP_KEY = 'your secret'
+
 

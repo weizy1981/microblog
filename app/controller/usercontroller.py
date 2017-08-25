@@ -54,3 +54,11 @@ class UserController:
     def search_posts(self, post_ids):
         posts = session.query(Posts).filter(Posts.id.in_(other=post_ids)).order_by(Posts.timestamp.desc()).all()
         return posts
+
+    def search_post_byId(self, id):
+        post = session.query(Posts).filter_by(id=id).first()
+        return post
+
+    def delete_post(self, post):
+        session.delete(post)
+        session.commit()
