@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-08-23 17:54+0800\n"
+"POT-Creation-Date: 2017-08-25 09:28+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,6 +23,10 @@ msgstr ""
 
 #: templates/base.html:21
 msgid "Home"
+msgstr ""
+
+#: templates/post_tmp.html:8
+msgid "Translate"
 msgstr ""
 
 #: views/microblogviews.py:201

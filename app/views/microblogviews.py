@@ -18,12 +18,28 @@ from flask_login import login_user
 from app.controller.emails import follower_notification
 from app import babel
 from flask_babel import gettext as _
+from app.controller.translate import translate
+from flask import jsonify
 
 
 @babel.localeselector
 def get_locale():
-    return request.accept_languages.best_match(app.config['LANGUAGES'].keys())
+    language = request.accept_languages.best_match(app.config['LANGUAGES'].keys())
+    g.locale = language
+    return language
     #return 'zh'
+
+@app.route('/translate', methods = ['POST'])
+@login_required
+def translate_action():
+    text = request.form['text']
+    print(text)
+    print(type(text))
+    return jsonify({
+        'text': translate(
+            request.form['text'],
+            request.form['destLang'])})
+
 
 @app.errorhandler(404)
 def internal_error(error):

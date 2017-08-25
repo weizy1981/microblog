@@ -7,6 +7,23 @@
     <script src="/static/js/moment-with-locales.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <script>
+        function translate(destLang, sourceId, destId) {
+            $(destId).hide();
+            $.post('/translate', {
+                text: $(sourceId).text(),
+                destLang: destLang
+            }).done(function (translated) {
+                $(destId).text(translated['text'])
+                $(destId).show();
+            }).fail(function () {
+                $(destId).text("{{ _('Error: Could not contact server.') }}");
+                $(destId).show();
+            });
+        }
+    </script>
+
+
     {% if title %}
         <title>{{ title }} - microblog</title>
     {% else %}

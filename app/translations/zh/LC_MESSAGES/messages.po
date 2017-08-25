@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-08-23 17:54+0800\n"
-"PO-Revision-Date: 2017-08-23 17:54+0800\n"
+"POT-Creation-Date: 2017-08-25 09:28+0800\n"
+"PO-Revision-Date: 2017-08-25 09:28+0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh\n"
 "Language-Team: zh <LL@li.org>\n"
@@ -20,13 +20,17 @@ msgstr ""
 
 #: __init__.py:15
 msgid "Please log in to access this page."
-msgstr "请先登录！"
+msgstr "请先登录，在访问本页。"
 
 #: templates/base.html:21
 msgid "Home"
 msgstr "主页"
 
+#: templates/post_tmp.html:8
+msgid "Translate"
+msgstr "翻译"
+
 #: views/microblogviews.py:201
 msgid "The username is signned up, please use another username!"
-msgstr "用户名已经被注册，请选择其他的用户名进行注册！"
+msgstr "用户名被占用，请使用其他的用户名注册！"
 
