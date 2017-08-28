@@ -56,12 +56,12 @@ class Users(Base):
     def follow(self, user):
         if not self.is_following(user):
             self.followed.append(user)
-            return self
+        return self
 
     def unfollow(self, user):
         if self.is_following(user):
             self.followed.remove(user)
-            return self
+        return self
 
     def is_following(self, user):
         return self.followed.filter(followers.c.followed_id == user.id).count() > 0
